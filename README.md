@@ -9,7 +9,24 @@ The module challenge is the afternoon project or assignment that students work t
 ## Objectives
 
 - Explain function scope
-- Describe what closure is, how closure is created in a program and why it is important to understand closures in JavaScript  
+
+Function scope is a function's reach when using variables defined in the function body
+or existing outside of the function. A variable can be defined globally or locally to a function.
+A global variable is accessible by anything in the code body. However, a local variable is 
+only accessibile inside the scope of the function declaring it. One analogy is that objects and arrays access 
+items within their container; JavaScript has many nested containers and we want to access items
+on different levels. This amount of accessibility is referred to as scope (in CSS this same concept is referred to as specificity). 
+
+- Describe what closure is, how closure is created in a program and why it is important to understand closures in JavaScript.
+
+Closure is created in a program by placing a function inside a function producing a local scope
+or placing a variable outside of a function, gives it a global scope
+since the data exists outside the function body. It is important to understand closures in JavaScript 
+since where you return a value depends on whether or not your function is going to receive the data from 
+(e.g. outside or inside the function). Closure is dependent on a Lexical Environment as a way to structure 
+data as well as establishing the connections between structures (e.g. nesting, identifiers). The nested structures 
+within some amount of code will have closure when the intended execution can properly occur; when the correct nesting
+of structures is working under the right scopes (the correct lexical environment) the code will have closure.
 
 ## Introduction
 
@@ -42,6 +59,12 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+A: Closure is dependent on a Lexical Environment as a way to structure data as well as establishing the connections
+between structures (e.g. nesting, identifiers). The nested structures within some amount of code will have closure 
+when the intended execution can properly occur; when the correct nesting of structures is working under the right
+scopes (the correct lexical environment) the code will have closure.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -49,7 +72,7 @@ function personalDice(name){
   return function(){
       // generate random number between 1 and 6
     const newRoll = Math.floor(Math.random() * 6);
-    console.log(`${name} rolled a ${newRoll}`)
+    console.log(`${name} rolled a ${newRoll}`);
   }
 }
 
@@ -63,8 +86,19 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+A: The personalDice function returns an anonymous function and is only invoked when the variable dansRoll or
+   zoesRoll is invoked as in the last two lines of the code; this context of whether or not to invoke the
+   function in the return is an example of closure.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+A: When dansRoll is called, the returned function will keep the parameter name as "Dan" but the random number
+   will (in most cases) be different since it is pseudo-random.
+
 c. What is the lexical scope of `newRoll`? 
+
+A: This is the scope of the function value being assigned to newRoll; this is the Math.floor function (or method).
 
 ### Task 3 - Stretch Goals
 
