@@ -11,13 +11,17 @@ See if you can complete one or more of the following challenges:
 When you 're ready for answers, view an explanation [here](https://www.coderbyte.com/algorithm/3-common-javascript-closure-questions
 
 js
-(function(){
-var a = b = 3;})
-
-();
-
+// immediately invoke this anonymous function with ();
+function(){
+    // a and b are not returned, and are local
+    var a = b = 3;}();
+// cannot reach into the function and see values of a and b
+// a and b will not be defined globally
 console.log("a defined? " + (typeof a !== 'undefined'));
 console.log("b defined? " + (typeof b !== 'undefined'));
+
+Ans: Both console.log statements will concatenate a boolean value to the string. Because a and b are local to the function,
+    the console log will print false for both.
 
 2. Write a function that would allow you to do this using a closure.(This is another interview question we 've seen before -
 when you're ready for answers, view an explanation[here](https: //www.coderbyte.com/algorithm/3-common-javascript-closure-questions)).
